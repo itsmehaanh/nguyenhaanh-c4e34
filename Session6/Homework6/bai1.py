@@ -7,7 +7,7 @@ raw_data = conn.read()
 content = raw_data.decode('utf8')
 
 soup = BeautifulSoup(content,"html.parser")
-ul = soup.find("ul")
+ul = soup.find("ul","")
 
 li_list = ul.find_all("li")
 
@@ -15,10 +15,10 @@ empty_list = []
 # print(li_list)
 for li in li_list:
     dic = OrderedDict({"Name":None, "Artist":None})
-    a = li.h3.ul
-    a1= li.h4.ul
+    a = li.h3.a
+    a1= li.h4.a
     name = a.string.strip() 
-    print(Name)
+    print(name)
     # print(a)
     artist = a1.string.strip()
     
