@@ -1,6 +1,7 @@
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 from collections import OrderedDict
+from youtube_dl import YoutubeDL
 url = 'https://www.apple.com/itunes/charts/songs/'
 conn = urlopen(url)
 raw_data = conn.read()
@@ -26,6 +27,14 @@ for li in li_list:
     dic["Artist"] = artist
     dic = empty_list.append(dic)
 
+    options = {
+    'default_search': 'ytsearch', # tell downloader to search instead of directly downloading
+    'max_downloads': 1, # Tell downloader to download only the first entry (video)
+    'format': 'bestaudio/audio'
+    }
+    dl = YoutubeDL(options)
+    dl.download(name)
+
 
 
 
@@ -41,10 +50,5 @@ import pyexcel
 pyexcel.save_as(records=empty_list, dest_file_name="Itunes.xlsx")
 
 
-
-
-  
-
-    
 
 
