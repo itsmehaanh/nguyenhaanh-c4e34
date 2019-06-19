@@ -42,13 +42,9 @@ pyexcel.save_as(records=empty_list, dest_file_name="Itunes.xlsx")
 
 
 
-for artist_dict in data['feed']['entry']:
-    artist_name = artist_dict['im:artist']['label']
-    song_artist = artist_dict['title']['label']
-import pyexcel
 
   
 
     
 
-pyexcel.save_as(records=artist_dic, dest_file_name="Itunes.xlsx")
+
